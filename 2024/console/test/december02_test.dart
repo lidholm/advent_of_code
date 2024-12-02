@@ -19,6 +19,23 @@ void main() {
     final input = await getListsFromInputData();
     expect(checkIfSafe(input), 516);
   });
+
+  test('checkIfSafeWithDampener with example data', () {
+    final input = [
+      [7, 6, 4, 2, 1],
+      [1, 2, 7, 8, 9],
+      [9, 7, 6, 2, 1],
+      [1, 3, 2, 4, 5],
+      [8, 6, 4, 4, 1],
+      [1, 3, 6, 7, 9],
+    ];
+    expect(checkIfSafeWithDampener(input), 4);
+  });
+
+  test('checkIfSafeWithDampener with input data', () async {
+    final input = await getListsFromInputData();
+    expect(checkIfSafeWithDampener(input), 561);
+  });
 }
 
 Future<List<List<int>>> getListsFromInputData() async {

@@ -3,7 +3,7 @@
 | [01](https://adventofcode.com/2024/day/1) |   1,941,353 |   22,539,317 |
 | [02](https://adventofcode.com/2024/day/2) |         516 |          561 |
 | [03](https://adventofcode.com/2024/day/3) | 162,813,399 |   53,783,319 |
-| [04](https://adventofcode.com/2024/day/4) |           - |            - |
+| [04](https://adventofcode.com/2024/day/4) |       2,462 |            - |
 | [05](https://adventofcode.com/2024/day/5) |           - |            - |
 | [06](https://adventofcode.com/2024/day/6) |           - |            - |
 | [07](https://adventofcode.com/2024/day/7) |           - |            - |

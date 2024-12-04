@@ -11,9 +11,21 @@ class Dec04 {
 
     var count = 0;
 
+    final checkers = [
+      checkRight,
+      checkLeft,
+      checkUp,
+      checkDown,
+      checkUpLeft,
+      checkUpRight,
+      checkDownLeft,
+      checkDownRight,
+    ];
     for (final xpos in positionsForX.keys) {
-      if (checkRight(xpos)) {
-        count++;
+      for (final checker in checkers) {
+        if (checker(xpos)) {
+          count++;
+        }
       }
     }
 
@@ -25,7 +37,7 @@ class Dec04 {
 
     for (var r = 0; r < lines.length; r++) {
       for (var c = 0; c < lines[r].length; c++) {
-        print('$r, $c, ${lines[r][c]}');
+        // print('$r, $c, ${lines[r][c]}');
         switch (lines[r][c]) {
           case 'X':
             positionsForX[(r, c)] = true;
@@ -45,22 +57,52 @@ class Dec04 {
   }
 
   bool checkRight((int, int) xPos) {
-    final xInc = 1;
-    final yInc = 0;
+    return check(xPos, 1, 0);
+  }
 
+  bool checkLeft((int, int) xPos) {
+    return check(xPos, -1, 0);
+  }
+
+  bool checkUp((int, int) xPos) {
+    return check(xPos, 0, -1);
+  }
+
+  bool checkDown((int, int) xPos) {
+    return check(xPos, 0, 1);
+  }
+
+  bool checkUpLeft((int, int) xPos) {
+    return check(xPos, -1, -1);
+  }
+
+  bool checkUpRight((int, int) xPos) {
+    return check(xPos, 1, -1);
+  }
+
+  bool checkDownLeft((int, int) xPos) {
+    return check(xPos, -1, 1);
+  }
+
+  bool checkDownRight((int, int) xPos) {
+    return check(xPos, 1, 1);
+  }
+
+  bool check((int, int) xPos, int xInc, int yInc) {
     final posCheckers = [
+      positionsForX,
       positionsForM,
       positionsForA,
       positionsForS,
     ];
 
     for (final (i, posChecker) in posCheckers.indexed) {
-      final key = (xPos.$1 + yInc * (i + 1), xPos.$2 + xInc * (i + 1));
-      if (posChecker.containsKey(key)) {
-        return true;
+      final key = (xPos.$1 + yInc * (i), xPos.$2 + xInc * (i));
+      if (!posChecker.containsKey(key)) {
+        return false;
       }
     }
 
-    return false;
+    return true;
   }
 }

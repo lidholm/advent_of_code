@@ -39,7 +39,7 @@ void main() {
 }
 
 Future<List<List<int>>> getListsFromInputData() async {
-  final filePath = './test/december02-part1-input.txt';
+  final filePath = '../puzzleInputs/december02-part1-input.txt';
 
   final file = File(filePath);
   final contents = await file.readAsString();

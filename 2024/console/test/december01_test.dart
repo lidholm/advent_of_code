@@ -27,7 +27,7 @@ void main() {
 }
 
 Future<(List<int>, List<int>)> getListsFromInputData() async {
-  final filePath = './test/december01-part1-input.txt';
+  final filePath = '../puzzleInputs/december01-part1-input.txt';
 
   final file = File(filePath);
   final contents = await file.readAsString();

@@ -27,7 +27,7 @@ void main() {
 }
 
 Future<String> getInputData() async {
-  final filePath = './test/december03-part1-input.txt';
+  final filePath = '../puzzleInputs/december03-part1-input.txt';
 
   final file = File(filePath);
   final contents = await file.readAsString();

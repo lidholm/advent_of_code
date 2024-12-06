@@ -105,4 +105,68 @@ class Dec04 {
 
     return true;
   }
+
+  int findXofMAS(String input) {
+    findAllPositions(input);
+
+    var count = 0;
+
+    final checkers = [
+      checkXoption1,
+      checkXoption2,
+      checkXoption3,
+      checkXoption4,
+    ];
+    for (final xpos in positionsForA.keys) {
+      if (checkers.any((checker) => checker(xpos))) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
+  bool checkXoption1((int, int) pos) {
+    if (positionsForM.containsKey((pos.$1 - 1, pos.$2 - 1)) &&
+        positionsForS.containsKey((pos.$1 + 1, pos.$2 + 1)) &&
+        positionsForM.containsKey((pos.$1 + 1, pos.$2 - 1)) &&
+        positionsForS.containsKey((pos.$1 - 1, pos.$2 + 1))) {
+      return true;
+    }
+
+    return false;
+  }
+
+  bool checkXoption2((int, int) pos) {
+    if (positionsForM.containsKey((pos.$1 + 1, pos.$2 + 1)) &&
+        positionsForS.containsKey((pos.$1 - 1, pos.$2 - 1)) &&
+        positionsForM.containsKey((pos.$1 + 1, pos.$2 - 1)) &&
+        positionsForS.containsKey((pos.$1 - 1, pos.$2 + 1))) {
+      return true;
+    }
+
+    return false;
+  }
+
+  bool checkXoption3((int, int) pos) {
+    if (positionsForM.containsKey((pos.$1 - 1, pos.$2 + 1)) &&
+        positionsForS.containsKey((pos.$1 - 1, pos.$2 - 1)) &&
+        positionsForM.containsKey((pos.$1 + 1, pos.$2 + 1)) &&
+        positionsForS.containsKey((pos.$1 + 1, pos.$2 - 1))) {
+      return true;
+    }
+
+    return false;
+  }
+
+  bool checkXoption4((int, int) pos) {
+    if (positionsForM.containsKey((pos.$1 - 1, pos.$2 - 1)) &&
+        positionsForM.containsKey((pos.$1 - 1, pos.$2 + 1)) &&
+        positionsForS.containsKey((pos.$1 + 1, pos.$2 - 1)) &&
+        positionsForS.containsKey((pos.$1 + 1, pos.$2 + 1))) {
+      return true;
+    }
+
+    return false;
+  }
 }
